@@ -1,4 +1,10 @@
 <!doctype html>
+
+<script type="text/javascript">
+	// Change NumberOfSlides to denote the actual number of slides
+	var NumberOfSlides = 13
+</script>
+
 <html>
 <head>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -6,6 +12,10 @@
 
 <style type="text/css">
 body{
+	/*
+	Changes the background color
+	Choose color hash code from https://htmlcolorcodes.com/
+	*/
 	background:#ccc;
 }
 #magazine{
@@ -17,36 +27,32 @@ body{
 	background-size:100% 100%;
 }
 </style>
-	<title>Ajay Nair - About Me</title>
-<meta name="description" content="Hi! This is Ajay Nair, and this is my about me page. I hope you enjoy">
-	<meta property="og:title" content="Ajay Nair - About Me" />
-	<meta property="og:url" content="https://ajaynair.github.io/AboutMe/" />
-	<meta property="og:description" content="Hi! This is Ajay Nair, and this is my about me page. I hope you enjoy">
-	<meta property="og:image" content="https://ajaynair.github.io/AboutMe/pages/Slide1.JPG">
+	<!-- You can modify the following lines to change how the overview
+	of the webpage will look when you share the link via WhatsApp, Facebook etc -->
+	<title>About Me</title>
+	<meta name="description" content="Hi! This is my about me page. I hope you like it">
+	<meta property="og:title" content="About Me" />
+	<meta property="og:description" content="Hi! This is my about me page. I hope you like it">
+
+	<!-- Uncomment the next line and add the link to your AboutMe page -->
+	<!-- <meta property="og:url" content="https://ajaynair.github.io/AboutMeTemplate/" /> -->
+	<!-- Uncomment the next line and add a link to an image that will be shown when you share the link of your page on social media -->
+	<!-- <meta property="og:image" content="https://ajaynair.github.io/AboutMe/pages/Slide1.JPG"> -->
 </head>
 
 <body>
 
-<div id="magazine">
-	<div style="background-image:url(pages/Slide1.JPG);"></div>
-	<div style="background-image:url(pages/Slide2.JPG);"></div>
-	<div style="background-image:url(pages/Slide3.JPG);"></div>
-	<div style="background-image:url(pages/Slide4.JPG);"></div>
-	<div style="background-image:url(pages/Slide5.JPG);"></div>
-	<div style="background-image:url(pages/Slide6.JPG);"></div>
-	<div style="background-image:url(pages/Slide7.JPG);"></div>
-	<div style="background-image:url(pages/Slide8.JPG);"></div>
-	<div style="background-image:url(pages/Slide9.JPG);"></div>
-	<div style="background-image:url(pages/Slide10.JPG);"></div>
-	<div style="background-image:url(pages/Slide11.JPG);"></div>
-	<div style="background-image:url(pages/Slide12.JPG);"></div>
-	<div style="background-image:url(pages/Slide13.JPG);"></div>
-</div>
-
+<div id="magazine"></div>
 
 <script type="text/javascript">
 
 	$(window).ready(function() {
+
+		var i;
+		for (i = 1; i < NumberOfSlides; i++) {
+			image_name = "Slide" + i + ".JPG"
+			$('#magazine').append('<div style="background-image:url('+ image_name + ');"></div>')
+		}
 		$('#magazine').turn({
 							display: 'double',
 							acceleration: true,
@@ -63,9 +69,9 @@ body{
 	
 	$(window).bind('keydown', function(e){
 		
-		if (e.keyCode==37)
+		if (e.keyCode===37)
 			$('#magazine').turn('previous');
-		else if (e.keyCode==39)
+		else if (e.keyCode===39)
 			$('#magazine').turn('next');
 			
 	});
