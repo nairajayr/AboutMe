@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 	// Change NumberOfSlides to denote the actual number of slides
-	var NumberOfSlides = 13
+	var NumberOfSlides = 10
 </script>
 
 <html>
@@ -49,7 +49,7 @@ body{
 	$(window).ready(function() {
 
 		var i;
-		for (i = 1; i < NumberOfSlides; i++) {
+		for (i = 1; i <= NumberOfSlides; i++) {
 			image_name = "Slide" + i + ".JPG"
 			$('#magazine').append('<div style="background-image:url('+ image_name + ');"></div>')
 		}
